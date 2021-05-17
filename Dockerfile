@@ -1,13 +1,18 @@
-FROM housmart/ruby-tesseract
+FROM ruby:2.6.6
+
+ARG RAILS_ENV
+ENV LANG C.UTF-8
+ENV TZ Asia/Tokyo
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential libpq-dev && \
-    curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
+    apt-get install -y build-essential libpq-dev apt-utils && \
+    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
     apt-get install -y nodejs && \
     npm install -g n && \
-    n stable && \
+    n 12 && \
     npm install -g yarn && \
     apt-get install -y python-dev && \
     wget https://bootstrap.pypa.io/get-pip.py && \
-    python get-pip.py && \
-    pip install awscli
+    python3 get-pip.py && \
+    pip install awscli && \
+    rm -f get-pip.py
