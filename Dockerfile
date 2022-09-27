@@ -7,7 +7,7 @@ ENV TZ Asia/Tokyo
 RUN apt-get update -qq && \
     apt-get install -y build-essential libpq-dev apt-utils && \
     curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-    apt-get install -y nodejs && \
+    apt-get install -y nodejs jq && \
     npm install -g n && \
     n 12 && \
     npm install -g yarn && \
