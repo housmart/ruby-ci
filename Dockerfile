@@ -1,4 +1,4 @@
-FROM ruby:2.6.6
+FROM ruby:2.7.7
 
 ARG RAILS_ENV
 ENV LANG C.UTF-8
